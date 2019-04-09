@@ -1,0 +1,50 @@
+public class Ventas extends Fragment {
+
+     ArrayList<IngresarVentas>ventas;
+     RecyclerView listaVentas;
+
+
+    Button btn_agregar;
+    EditText txt_Producto, txt_Precio;
+    public Ventas() {
+        // Required empty public constructor
+    }
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View vista= inflater.inflate(R.layout.fragment_ventas, container, false);
+
+        btn_agregar = vista.findViewById(R.id.btnagregar);
+        txt_Producto = vista.findViewById(R.id.etproducto);
+        txt_Precio = vista.findViewById(R.id.etprecio);
+
+        listaVentas = vista.findViewById(R.id.reciclador);
+
+        LinearLayoutManager llm = new LinearLayoutManager(getActivity());
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+
+        listaVentas.setLayoutManager(llm);
+        inicializarListaVentas();
+        inicializarAdapter();
+
+        return vista;
+    }
+
+    public void inicializarAdapter(){
+        VentasAdapter adapter = new VentasAdapter(ventas);
+        listaVentas.setAdapter(adapter);
+    }
+
+    // Inicializar
+    public void inicializarListaVentas(){
+        ventas = new ArrayList<>();
+
+        ventas.add(new IngresarVentas("Nescafe soluble 350 ml",  20));
+        ventas.add(new IngresarVentas("Colgate Blanca para dientes y encias",  46));
+        ventas.add(new IngresarVentas("miel", 32));
+
+    }
+}
