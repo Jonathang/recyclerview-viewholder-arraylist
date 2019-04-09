@@ -1,0 +1,25 @@
+public class IngresarVentas {
+    private String productos;
+    private int precios;
+
+    public IngresarVentas(String productos, int precios) {
+        this.productos = productos;
+        this.precios = precios;
+    }
+
+    public String getProductos() {
+        return productos;
+    }
+
+    public void setProductos(String productos) {
+        this.productos = productos;
+    }
+
+    public int getPrecios() {
+        return precios;
+    }
+
+    public void setPrecios(int precios) {
+        this.precios = precios;
+    }
+}
