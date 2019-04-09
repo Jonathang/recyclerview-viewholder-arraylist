@@ -1,0 +1,42 @@
+public class VentasAdapter extends RecyclerView.Adapter<VentasAdapter.VentasViewHolder> {
+    ArrayList<IngresarVentas>ventas;
+
+    //CONSTRUCTOR PARA QUE ENVIE TODOS LOS METODOS Y CONSTRUIR EL ARRAYLIST DE VENTAS
+    public VentasAdapter(ArrayList<IngresarVentas>ventas){
+        this.ventas = ventas;
+    }
+
+    // INFLAR EL LAYOUT Y LO PASARA AL VIEWHOLDER PARA QUE OBTENGA LOS VIEWS
+    @Override
+    public VentasViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.activity_lista_ventas, viewGroup, false);
+        return new VentasViewHolder(v);
+    }
+    //ASOCIA CADA ELEMENTO DE LA LISTA CON CADA VIEW
+    @Override
+    public void onBindViewHolder(VentasViewHolder ventasholder, int posicion) {
+        IngresarVentas venta = ventas.get(posicion);
+        ventasholder.tvproductoCV.setText(venta.getProductos());
+        ventasholder.tvprecioCV.setText(String.valueOf(venta.getPrecios()));
+    }
+
+    //CANTIDAD DE ELEMENTOS QUE CONTIENETE MI LISTA INGRESARVENTAS
+    @Override
+    public int getItemCount() {
+        return ventas.size();
+    }
+
+    public static class VentasViewHolder extends RecyclerView.ViewHolder {
+
+        private TextView tvproductoCV;
+        private TextView tvprecioCV;
+
+
+        public VentasViewHolder(View itemView) {
+            super(itemView);
+         tvproductoCV = itemView.findViewById(R.id.tvproducto);
+         tvprecioCV   = itemView.findViewById(R.id.tvprecio);
+
+        }
+    }
+}
