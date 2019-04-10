@@ -17,9 +17,6 @@ public class Ventas extends Fragment {
         // Inflate the layout for this fragment
         View vista= inflater.inflate(R.layout.fragment_ventas, container, false);
 
-        btn_agregar = vista.findViewById(R.id.btnagregar);
-        txt_Producto = vista.findViewById(R.id.etproducto);
-        txt_Precio = vista.findViewById(R.id.etprecio);
 
         listaVentas = vista.findViewById(R.id.reciclador);
 
